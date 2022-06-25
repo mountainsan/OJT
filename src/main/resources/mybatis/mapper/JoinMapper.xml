@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.san.OJT.IDAO.JoinIDAO">
+
+<insert id="joinProc" parameterType="com.san.OJT.DTO.Membership">
+    INSERT INTO membership VALUES (#{id},#{pw},#{job}) ;
+
+</insert>
+
+<select id="DBCheck" parameterType="String" resultType="int">
+    SELECT COUNT(*) FROM membership WHERE id = #{id} ;
+
+</select>
+
+
+    <select id="loginConfirm" parameterType="String" resultType="int">
+
+        SELECT COUNT(*) FROM membership WHERE id = #{inputID} AND pw =#{inputPW}
+    </select>
+
+    <select id="DBckID" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM membership WHERE id = #{inputID};
+
+    </select>
+
+    <select id="DBckPW" parameterType="String" resultType="int">
+        SELECT COUNT(*) FROM membership WHERE pw = #{inputPW};
+
+    </select>
+
+
+
+
+
+
+</mapper>
